@@ -42,13 +42,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-27-cTb">
-                                            <rect key="frame" x="8" y="304" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="298" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aD1-r0-T9x">
-                                            <rect key="frame" x="8" y="339" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="327" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -61,10 +61,10 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="aD1-r0-T9x" firstAttribute="top" secondItem="PeX-27-cTb" secondAttribute="bottom" constant="8" id="8t3-8m-kue"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aD1-r0-T9x" secondAttribute="trailing" constant="20" symbolic="YES" id="916-Vk-48g"/>
                                         <constraint firstItem="aD1-r0-T9x" firstAttribute="leading" secondItem="yKn-Fe-xSc" secondAttribute="leading" constant="8" id="9KS-5v-v7V"/>
                                         <constraint firstItem="xdS-lH-Ig8" firstAttribute="leading" secondItem="yKn-Fe-xSc" secondAttribute="leading" constant="8" id="E3j-cX-UW2"/>
-                                        <constraint firstItem="PeX-27-cTb" firstAttribute="top" secondItem="mBb-wX-qE1" secondAttribute="bottom" constant="14" id="FlN-DZ-p59"/>
                                         <constraint firstItem="xdS-lH-Ig8" firstAttribute="top" secondItem="Otw-NK-jeJ" secondAttribute="bottom" constant="8" id="GvO-aj-M8P"/>
                                         <constraint firstItem="PeX-27-cTb" firstAttribute="leading" secondItem="yKn-Fe-xSc" secondAttribute="leading" constant="8" id="RFc-NM-ny2"/>
                                         <constraint firstItem="mBb-wX-qE1" firstAttribute="leading" secondItem="yKn-Fe-xSc" secondAttribute="leading" constant="8" id="Tav-HM-jW0"/>
@@ -73,8 +73,8 @@
                                         <constraint firstItem="Otw-NK-jeJ" firstAttribute="leading" secondItem="yKn-Fe-xSc" secondAttribute="leading" id="bKi-J0-Jnt"/>
                                         <constraint firstItem="mBb-wX-qE1" firstAttribute="top" secondItem="xdS-lH-Ig8" secondAttribute="bottom" constant="4" id="cBc-Bc-gV7"/>
                                         <constraint firstItem="Otw-NK-jeJ" firstAttribute="top" secondItem="yKn-Fe-xSc" secondAttribute="top" id="k95-6F-j6u"/>
-                                        <constraint firstItem="aD1-r0-T9x" firstAttribute="top" secondItem="PeX-27-cTb" secondAttribute="bottom" constant="14" id="mNi-3F-Aba"/>
                                         <constraint firstItem="PeX-27-cTb" firstAttribute="leading" secondItem="yKn-Fe-xSc" secondAttribute="leading" constant="8" id="nN4-FW-hWq"/>
+                                        <constraint firstItem="PeX-27-cTb" firstAttribute="top" secondItem="mBb-wX-qE1" secondAttribute="bottom" constant="8" id="oZk-ZW-NJ2"/>
                                         <constraint firstAttribute="trailing" secondItem="Otw-NK-jeJ" secondAttribute="trailing" id="pqX-Gd-XpQ"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xdS-lH-Ig8" secondAttribute="trailing" constant="20" symbolic="YES" id="qSj-5Q-znG"/>
                                     </constraints>
