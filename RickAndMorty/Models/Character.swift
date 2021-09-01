@@ -20,4 +20,14 @@ struct Character: Codable {
     let episode: [String]
     let url: String
     let created: String
+    var isAlive: Bool {
+        return status == "Alive"
+    }
+    var statusAndSpeciesText: String {
+        if isAlive {
+            return "🟢 \(status) - \(species)"
+        } else {
+            return "🔴 \(status) - \(species)"
+        }
+    }
 }

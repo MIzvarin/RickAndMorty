@@ -14,8 +14,8 @@ class CharactersCollectionViewController: UICollectionViewController {
     //MARK: - Private properties
     
     private let itemsPerRow: CGFloat = 2
-    private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    private var charactes: [Character] = []
+    private let sectionInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    private var characters: [Character] = []
     
     //MARK: - Overrided functions
     
@@ -42,22 +42,23 @@ class CharactersCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return characters.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath)
         guard let characterCell = cell as? CharacterCollectionViewCell else { return cell }
+        characterCell.configure(from: characters[indexPath.row])
         return characterCell
-
     }
     
     //MARK: - Private functions
     private func fetchCharacters() {
-        NetworkManager.shared.loadData(service: CharacterManager.getAllCharacters, decodeTo: SubjectsList<Character>.self) { result in
+        NetworkManager.shared.loadModel(service: CharacterManager.getAllCharacters, decodeTo: SubjectsList<Character>.self) { result in
             switch result {
             case .success(let response):
-                self.charactes = response.results
+                self.characters = response.results
+                self.collectionView.reloadData()
             case .fail(let error):
                 print(error)
             }
