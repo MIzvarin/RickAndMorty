@@ -21,4 +21,6 @@ enum CharacterManager: URLRequestBuilder {
             return ["id": characterID]
         }
     }
+    
+    
 }

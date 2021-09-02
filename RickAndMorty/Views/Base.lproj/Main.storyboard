@@ -101,7 +101,10 @@
                             <outlet property="delegate" destination="6H9-al-hIz" id="wlD-r2-Kms"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Characters" id="B8f-Hd-ofb"/>
+                    <navigationItem key="navigationItem" title="Characters" id="B8f-Hd-ofb">
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="LHg-xf-EYi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="KfN-2C-d4z"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi9-3U-rgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

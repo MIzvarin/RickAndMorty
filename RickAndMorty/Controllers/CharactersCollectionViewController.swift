@@ -64,6 +64,11 @@ class CharactersCollectionViewController: UICollectionViewController {
             }
         }
     }
+    
+    private func setNavBarButtonsActions() {
+        let rightButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(fetchCharacters))
+        let leftButton = UIBarButtonItem(title: "Prev", style: .plain, target: self, action: #selector(fetchCharacters))
+    }
 }
 
 extension CharactersCollectionViewController: UICollectionViewDelegateFlowLayout {
