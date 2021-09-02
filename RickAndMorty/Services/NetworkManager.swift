@@ -35,7 +35,7 @@ struct NetworkManager {
         }
     }
     
-    func loadModelFromURL<T: Codable>(from url: String, decodeTo: T.Type, completion: @escaping (Result<T>) -> Void) {
+    func loadModel<T: Codable>(from url: String, decodeTo: T.Type, completion: @escaping (Result<T>) -> Void) {
         guard let url = URL(string: url) else { return }
         AF.request(url).validate(statusCode: 200..<300).responseDecodable(of: T.self) { response in
             switch response.result {

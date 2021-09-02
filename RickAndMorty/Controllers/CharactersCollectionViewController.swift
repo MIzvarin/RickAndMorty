@@ -23,16 +23,20 @@ class CharactersCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         fetchCharacters()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "characterInfo" {
+            guard let tabBarVC = segue.destination as? UITabBarController
+                  , let controllers = tabBarVC.viewControllers else { return }
+            for controller in controllers {
+                if let characterInfoVC = controller as? CharacterInfoViewController {
+                    guard let sender = sender as? Character else { return }
+                    characterInfoVC.character = sender
+                }
+            }
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -63,11 +67,6 @@ class CharactersCollectionViewController: UICollectionViewController {
                 print(error)
             }
         }
-    }
-    
-    private func setNavBarButtonsActions() {
-        let rightButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(fetchCharacters))
-        let leftButton = UIBarButtonItem(title: "Prev", style: .plain, target: self, action: #selector(fetchCharacters))
     }
 }
 
