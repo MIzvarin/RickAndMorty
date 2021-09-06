@@ -30,4 +30,21 @@ struct Character: Codable {
             return "🔴 \(status) - \(species)"
         }
     }
+    
+    var description: String {
+        """
+        \(statusAndSpeciesText)
+        gender: \(gender)
+        created: \(created)
+        origin: \(origin?.name ?? "Undefinied")
+        location: \(location?.name ?? "Undefinied")
+        """
+    }
+    
+    private func stringToDate(from string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from:string)
+        return date
+    }
 }

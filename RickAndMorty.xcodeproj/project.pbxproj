@@ -25,6 +25,7 @@
 		FA91F31D26DFC33E00D2613E /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */; };
 		FA91F31F26DFC7F800D2613E /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31E26DFC7F800D2613E /* CharacterManager.swift */; };
 		FA91F32126DFD89B00D2613E /* EpisodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F32026DFD89B00D2613E /* EpisodeManager.swift */; };
+		FAA0C8CD26E6431400C6032D /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA91F31E26DFC7F800D2613E /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
 		FA91F32026DFD89B00D2613E /* EpisodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeManager.swift; sourceTree = "<group>"; };
+		FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				FA31409F26DFAA9F00E968F9 /* CharactersCollectionViewController.swift */,
 				FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */,
 				FA56AC0B26E16D4600C9B905 /* CharacterInfoViewController.swift */,
+				FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				FA3140A726DFABF700E968F9 /* Episode.swift in Sources */,
 				FA31408526DFA89B00E968F9 /* AppDelegate.swift in Sources */,
 				FA91F31F26DFC7F800D2613E /* CharacterManager.swift in Sources */,
+				FAA0C8CD26E6431400C6032D /* EpisodesTableViewController.swift in Sources */,
 				FA91F31D26DFC33E00D2613E /* CharacterCollectionViewCell.swift in Sources */,
 				FA3140A926DFAD1200E968F9 /* URLRequestBuilder.swift in Sources */,
 			);
