@@ -15,7 +15,7 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-    private var characters: [Character] = []
+    var characters: [Character] = []
     private var selectedCharacter: Character?
     
     //MARK: - Overrided functions
@@ -27,17 +27,15 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "characterInfo" {
-            guard let tabBarVC = segue.destination as? UITabBarController
-                  , let controllers = tabBarVC.viewControllers else { return }
-            guard let selectedCharacter = selectedCharacter else { return }
-            tabBarVC.navigationItem.title = selectedCharacter.name
-            for controller in controllers {
-                if let characterInfoVC = controller as? CharacterInfoViewController {
-                    characterInfoVC.character = selectedCharacter
-                } else if let episodesVC = controller as? EpisodesTableViewController {
-                    episodesVC.episodes = getCharactersEpisodes(from: selectedCharacter)
-                }
+        guard let tabBarVC = segue.destination as? UITabBarController
+              , let controllers = tabBarVC.viewControllers else { return }
+        guard let selectedCharacter = selectedCharacter else { return }
+        tabBarVC.navigationItem.title = selectedCharacter.name
+        for controller in controllers {
+            if let characterInfoVC = controller as? CharacterInfoViewController {
+                characterInfoVC.character = selectedCharacter
+            } else if let episodesVC = controller as? EpisodesTableViewController {
+                episodesVC.character = selectedCharacter
             }
         }
     }
@@ -76,21 +74,6 @@ class CharactersCollectionViewController: UICollectionViewController {
                 print(error)
             }
         }
-    }
-    
-    private func getCharactersEpisodes(from character: Character) -> [Episode]{
-        var episodes: [Episode] = []
-        for episodeURL in character.episode {
-            NetworkManager.shared.loadModel(from: episodeURL, decodeTo: Episode.self) { result in
-                switch result {
-                case .success(let episode):
-                    episodes.append(episode)
-                case .fail(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        }
-        return episodes
     }
 }
 
