@@ -29,17 +29,11 @@ class CharacterInfoViewController: UIViewController {
         StorageManager.shared.saveContext()
     }
     
-    private func removeFromFavorite() {
-        
-    }
-    
-    
     //MARK: - Private functions
     private func fillCharacterInfo(from character: Character) {
         descriptionLabel.text = character.description
-        NetworkManager.shared.loadData(from: character.image) { data in
-            self.characterImage.image = UIImage(data: data)
-        }
+        guard let characterImage = characterImage as? CharacterImageView else { return }
+        characterImage.loadImage(from: character.image)
     }
 
 }

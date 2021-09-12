@@ -25,6 +25,7 @@
 		FA91F31D26DFC33E00D2613E /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */; };
 		FA91F31F26DFC7F800D2613E /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31E26DFC7F800D2613E /* CharacterManager.swift */; };
 		FAA0C8CD26E6431400C6032D /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */; };
+		FAC2100C26EE6A6F00282CAB /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2100B26EE6A6F00282CAB /* CharacterImageView.swift */; };
 		FAFF40F226ECA89300B0EA99 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF40F026ECA89300B0EA99 /* CoreData.xcdatamodeld */; };
 		FAFF415A26ECB4F300B0EA99 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF415926ECB4F300B0EA99 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA91F31E26DFC7F800D2613E /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
 		FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
+		FAC2100B26EE6A6F00282CAB /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
 		FAFF40F126ECA89300B0EA99 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		FAFF415926ECB4F300B0EA99 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */,
+				FAC2100B26EE6A6F00282CAB /* CharacterImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				FAA0C8CD26E6431400C6032D /* EpisodesTableViewController.swift in Sources */,
 				FA91F31D26DFC33E00D2613E /* CharacterCollectionViewCell.swift in Sources */,
 				FA3140A926DFAD1200E968F9 /* URLRequestBuilder.swift in Sources */,
+				FAC2100C26EE6A6F00282CAB /* CharacterImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

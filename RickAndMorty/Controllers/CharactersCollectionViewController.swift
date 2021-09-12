@@ -39,10 +39,10 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarVC = segue.destination as? UITabBarController
-              , let controllers = tabBarVC.viewControllers
-              , let characterCollectionCell = sender as? CharacterCollectionViewCell
-              , let selectedCharacter = characters?.results[characterCollectionCell.tag]  else { return }
+        guard let tabBarVC = segue.destination as? UITabBarController,
+              let controllers = tabBarVC.viewControllers,
+              let characterCollectionCell = sender as? CharacterCollectionViewCell,
+              let selectedCharacter = characters?.results[characterCollectionCell.tag]  else { return }
         tabBarVC.navigationItem.title = selectedCharacter.name
         for controller in controllers {
             if let characterInfoVC = controller as? CharacterInfoViewController {

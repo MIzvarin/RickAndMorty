@@ -28,10 +28,8 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public functions
     func configure() {
-        guard let character = character else { return }
-        NetworkManager.shared.loadData(from: character.image) { data in
-            self.characterImageView.image = UIImage(data: data)
-        }
+        guard let character = character, let characterImageView = characterImageView as? CharacterImageView else { return }
+        characterImageView.loadImage(from: character.image)
         characterNameLabel.text = character.name
         characterStatusAndSpeciesLabel.text = character.statusAndSpeciesText
         addToFavoriteButton.setImage(heartImage, for: .normal)

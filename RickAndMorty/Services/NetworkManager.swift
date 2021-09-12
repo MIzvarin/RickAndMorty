@@ -26,7 +26,6 @@ struct NetworkManager {
     func loadData(from url: String, completion: @escaping (Data) -> Void) {
         guard let url = URL(string: url) else { return }
         AF.request(url).validate(statusCode: 200..<300).responseData { response in
-            guard url == response.response?.url else { return }
             switch response.result {
             case .success(let result):
                 DispatchQueue.main.async {
