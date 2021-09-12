@@ -9,67 +9,6 @@
     </dependencies>
     <scenes>
         <!--Characters-->
-        <scene sceneID="fiV-Zx-83f">
-            <objects>
-                <tabBarController id="UVX-1l-71N" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Characters" id="dgq-Np-DxG"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tJm-zn-Drr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="6H9-al-hIz" kind="relationship" relationship="viewControllers" id="t4Y-jK-uM0"/>
-                        <segue destination="wxQ-Sl-Y9v" kind="relationship" relationship="viewControllers" id="b3K-bi-Jaa"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bLA-rH-7Wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1335" y="64"/>
-        </scene>
-        <!--Favorite Characters-->
-        <scene sceneID="wKK-jT-GU9">
-            <objects>
-                <collectionViewController id="wxQ-Sl-Y9v" customClass="FavoriteCharactersCollectionViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="6Sr-bE-coB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.164131999" green="0.17749807240000001" blue="0.2054648399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g8t-Sg-77u">
-                            <size key="itemSize" width="207" height="379"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCharacterCell" id="N8z-mt-P07" customClass="CharacterCollectionViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                <rect key="frame" x="91.666666666666671" y="0.0" width="207" height="379"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9du-dn-Q3W">
-                                    <rect key="frame" x="0.0" y="0.0" width="207" height="379"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="207" height="379"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="wxQ-Sl-Y9v" id="7FE-AQ-Yyu"/>
-                            <outlet property="delegate" destination="wxQ-Sl-Y9v" id="dJJ-8B-adj"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Favorite Characters" image="person.fill.checkmark" catalog="system" id="4EC-Jd-20z"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HmX-p8-6KL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-406.15384615384613" y="426.54028436018956"/>
-        </scene>
-        <!--Characters-->
         <scene sceneID="24i-wA-rqr">
             <objects>
                 <collectionViewController id="6H9-al-hIz" customClass="CharactersCollectionViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
@@ -194,7 +133,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi9-3U-rgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406.15384615384613" y="-245.260663507109"/>
+            <point key="canvasLocation" x="-997" y="64"/>
         </scene>
         <!--Character-->
         <scene sceneID="Qk0-6d-Aeo">
@@ -242,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quv-4Q-dxZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1451" y="-668"/>
+            <point key="canvasLocation" x="1065" y="-371"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="luc-Dh-faJ">
@@ -261,7 +200,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9J-um-0BD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="-245"/>
+            <point key="canvasLocation" x="51" y="64"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="nyZ-gW-lX3">
@@ -291,7 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FED-HY-r93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1451" y="30"/>
+            <point key="canvasLocation" x="1066" y="431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xX5-7w-RI6">
@@ -305,7 +244,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="UVX-1l-71N" kind="relationship" relationship="rootViewController" id="VJY-i6-tY7"/>
+                        <segue destination="6H9-al-hIz" kind="relationship" relationship="rootViewController" id="EoL-D3-CWS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6c-dO-r5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -316,7 +255,6 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="person.fill.checkmark" catalog="system" width="128" height="88"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
     </resources>
 </document>

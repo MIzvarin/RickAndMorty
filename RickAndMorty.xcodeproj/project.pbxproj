@@ -24,10 +24,7 @@
 		FA91F31B26DFC1A300D2613E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31A26DFC1A300D2613E /* SceneDelegate.swift */; };
 		FA91F31D26DFC33E00D2613E /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */; };
 		FA91F31F26DFC7F800D2613E /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F31E26DFC7F800D2613E /* CharacterManager.swift */; };
-		FA91F32126DFD89B00D2613E /* EpisodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91F32026DFD89B00D2613E /* EpisodeManager.swift */; };
 		FAA0C8CD26E6431400C6032D /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */; };
-		FAC2100126EE18F000282CAB /* FavoriteCharactersCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2100026EE18F000282CAB /* FavoriteCharactersCollectionViewController.swift */; };
-		FAC2100526EE214D00282CAB /* extension CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2100426EE214D00282CAB /* extension CollectionView.swift */; };
 		FAFF40F226ECA89300B0EA99 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF40F026ECA89300B0EA99 /* CoreData.xcdatamodeld */; };
 		FAFF415A26ECB4F300B0EA99 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF415926ECB4F300B0EA99 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
@@ -54,10 +51,7 @@
 		FA91F31A26DFC1A300D2613E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA91F31E26DFC7F800D2613E /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
-		FA91F32026DFD89B00D2613E /* EpisodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeManager.swift; sourceTree = "<group>"; };
 		FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
-		FAC2100026EE18F000282CAB /* FavoriteCharactersCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharactersCollectionViewController.swift; sourceTree = "<group>"; };
-		FAC2100426EE214D00282CAB /* extension CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension CollectionView.swift"; sourceTree = "<group>"; };
 		FAFF40F126ECA89300B0EA99 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		FAFF415926ECB4F300B0EA99 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +106,7 @@
 		FA31408326DFA89B00E968F9 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				FAC2100826EE3F2900282CAB /* Views */,
 				FAFF40EF26ECA86400B0EA99 /* Data Model */,
 				FA31409E26DFA9D900E968F9 /* Services */,
 				FA31409C26DFA92000E968F9 /* Support Files */,
@@ -148,11 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				FA31409F26DFAA9F00E968F9 /* CharactersCollectionViewController.swift */,
-				FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */,
 				FA56AC0B26E16D4600C9B905 /* CharacterInfoViewController.swift */,
 				FAA0C8CC26E6431400C6032D /* EpisodesTableViewController.swift */,
-				FAC2100026EE18F000282CAB /* FavoriteCharactersCollectionViewController.swift */,
-				FAC2100426EE214D00282CAB /* extension CollectionView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,10 +173,17 @@
 				FA3140A826DFAD1200E968F9 /* URLRequestBuilder.swift */,
 				FA3140AA26DFB38F00E968F9 /* NetworkManager.swift */,
 				FA91F31E26DFC7F800D2613E /* CharacterManager.swift */,
-				FA91F32026DFD89B00D2613E /* EpisodeManager.swift */,
 				FAFF415926ECB4F300B0EA99 /* StorageManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FAC2100826EE3F2900282CAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA91F31C26DFC33E00D2613E /* CharacterCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FAFF40EF26ECA86400B0EA99 /* Data Model */ = {
@@ -309,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC2100126EE18F000282CAB /* FavoriteCharactersCollectionViewController.swift in Sources */,
 				FAFF415A26ECB4F300B0EA99 /* StorageManager.swift in Sources */,
 				FAFF40F226ECA89300B0EA99 /* CoreData.xcdatamodeld in Sources */,
 				FA56AC0C26E16D4600C9B905 /* CharacterInfoViewController.swift in Sources */,
@@ -317,7 +315,6 @@
 				FA3140AD26DFB74000E968F9 /* Info.swift in Sources */,
 				FA3140AF26DFB77700E968F9 /* SubjectsList.swift in Sources */,
 				FA3140A026DFAA9F00E968F9 /* CharactersCollectionViewController.swift in Sources */,
-				FA91F32126DFD89B00D2613E /* EpisodeManager.swift in Sources */,
 				FA3140A526DFAB4400E968F9 /* Location.swift in Sources */,
 				FA3140AB26DFB38F00E968F9 /* NetworkManager.swift in Sources */,
 				FA91F31B26DFC1A300D2613E /* SceneDelegate.swift in Sources */,
@@ -325,7 +322,6 @@
 				FA31408526DFA89B00E968F9 /* AppDelegate.swift in Sources */,
 				FA91F31F26DFC7F800D2613E /* CharacterManager.swift in Sources */,
 				FAA0C8CD26E6431400C6032D /* EpisodesTableViewController.swift in Sources */,
-				FAC2100526EE214D00282CAB /* extension CollectionView.swift in Sources */,
 				FA91F31D26DFC33E00D2613E /* CharacterCollectionViewCell.swift in Sources */,
 				FA3140A926DFAD1200E968F9 /* URLRequestBuilder.swift in Sources */,
 			);
