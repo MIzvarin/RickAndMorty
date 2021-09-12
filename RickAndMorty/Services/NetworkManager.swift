@@ -28,7 +28,9 @@ struct NetworkManager {
         AF.request(url).validate(statusCode: 200..<300).responseData { response in
             switch response.result {
             case .success(let result):
-                completion(result)
+                DispatchQueue.main.async {
+                    completion(result)
+                }
             case .failure(let error):
                 print(error)
             }
@@ -46,6 +48,8 @@ struct NetworkManager {
             }
         }
     }
+    
+    
     
     private init() {}
 }

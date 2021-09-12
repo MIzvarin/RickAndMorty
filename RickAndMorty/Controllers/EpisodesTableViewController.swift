@@ -53,12 +53,4 @@ class EpisodesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedEpisode = episodes[indexPath.row]
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let selectedEpisode = selectedEpisode else { return }
-//        if let charactersVC = segue.description as? CharactersCollectionViewController {
-//            charactersVC.characters = selectedEpisode.characters
-//        }
-    }
 }

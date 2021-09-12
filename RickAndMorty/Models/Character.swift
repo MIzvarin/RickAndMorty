@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Character: Codable {
+class Character: Codable {
     let id: Int
     let name: String
     let status: String
@@ -28,6 +28,14 @@ struct Character: Codable {
             return "🟢 \(status) - \(species)"
         } else {
             return "🔴 \(status) - \(species)"
+        }
+    }
+    var isFavorite: Bool {
+        get {
+            return StorageManager.shared.fetchCharacterByURL(url: url) != nil
+        }
+        set {
+            
         }
     }
     

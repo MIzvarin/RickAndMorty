@@ -14,7 +14,6 @@ class CharacterInfoViewController: UIViewController {
     
     //MARK: - IB Outlets
     @IBOutlet weak var characterImage: UIImageView!
-    @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     //MARK: - Overrided functions
@@ -24,6 +23,18 @@ class CharacterInfoViewController: UIViewController {
         fillCharacterInfo(from: character)
     }
     
+    private func addToFavorite() {
+        let favoriteCharacter = FavoriteCharacters(context: StorageManager.shared.context)
+        favoriteCharacter.url = character?.url
+        StorageManager.shared.saveContext()
+    }
+    
+    private func removeFromFavorite() {
+        
+    }
+    
+    
+    //MARK: - Private functions
     private func fillCharacterInfo(from character: Character) {
         descriptionLabel.text = character.description
         NetworkManager.shared.loadData(from: character.image) { data in

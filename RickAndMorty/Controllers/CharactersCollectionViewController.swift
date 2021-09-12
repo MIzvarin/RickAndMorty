@@ -7,29 +7,42 @@
 
 import UIKit
 
-private let reuseIdentifier = "characterCell"
-
 class CharactersCollectionViewController: UICollectionViewController {
     
     //MARK: - Private properties
+    private var characters: SubjectsList<Character>? {
+        didSet {
+            if characters?.info.prev == nil {
+                prevCharactersPage.isEnabled = false
+            } else {
+                prevCharactersPage.isEnabled = true
+            }
+            if characters?.info.next == nil {
+                nextCharactersPage.isEnabled = false
+            } else {
+                nextCharactersPage.isEnabled = true
+            }
+        }
+    }
     
-    private let itemsPerRow: CGFloat = 2
-    private let sectionInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-    var characters: [Character] = []
-    private var selectedCharacter: Character?
+    //MARK: - IB Outlets
+    @IBOutlet weak var nextCharactersPage: UIBarButtonItem!
+    @IBOutlet weak var prevCharactersPage: UIBarButtonItem!
     
     //MARK: - Overrided functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchCharacters()
+        setupNavigationBar()
     }
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tabBarVC = segue.destination as? UITabBarController
-              , let controllers = tabBarVC.viewControllers else { return }
-        guard let selectedCharacter = selectedCharacter else { return }
+              , let controllers = tabBarVC.viewControllers
+              , let characterCollectionCell = sender as? CharacterCollectionViewCell
+              , let selectedCharacter = characters?.results[characterCollectionCell.tag]  else { return }
         tabBarVC.navigationItem.title = selectedCharacter.name
         for controller in controllers {
             if let characterInfoVC = controller as? CharacterInfoViewController {
@@ -48,19 +61,30 @@ class CharactersCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characters.count
+        return characters?.results.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath)
         guard let characterCell = cell as? CharacterCollectionViewCell else { return cell }
-        characterCell.configure(from: characters[indexPath.row])
+        guard let character = characters?.results[indexPath.row] else { return cell }
+        characterCell.character = character
+        characterCell.configure()
+        characterCell.tag = indexPath.row
         return characterCell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        selectedCharacter = characters[indexPath.row]
-        return true
+    //MARK: - IBActions
+    @IBAction func changeCharactersPage(_ sender: UIBarButtonItem) {
+        guard let loadFrom = sender.tag == 1 ? characters?.info.next : characters?.info.prev else { return }
+        NetworkManager.shared.loadModel(from: loadFrom, decodeTo: SubjectsList<Character>.self) { result in
+            switch result {
+            case .success(let response):
+                self.setResponseData(response: response)
+            case .fail(let error):
+                print(error)
+            }
+        }
     }
     
     //MARK: - Private functions
@@ -68,23 +92,17 @@ class CharactersCollectionViewController: UICollectionViewController {
         NetworkManager.shared.loadModel(service: CharacterManager.getAllCharacters, decodeTo: SubjectsList<Character>.self) { result in
             switch result {
             case .success(let response):
-                self.characters = response.results
-                self.collectionView.reloadData()
+                self.setResponseData(response: response)
             case .fail(let error):
                 print(error)
             }
         }
     }
+
+    private func setResponseData(response: SubjectsList<Character>) {
+        characters = response
+        collectionView.reloadData()
+    }
+    
 }
 
-extension CharactersCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingWidth = sectionInsets.right * (itemsPerRow + 1)
-        let availableWidth = collectionView.frame.width - paddingWidth
-        let widthPerItem = availableWidth / itemsPerRow
-        return CGSize(width: widthPerItem, height: widthPerItem * 2)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-}
