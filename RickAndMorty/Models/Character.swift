@@ -42,6 +42,7 @@ class Character: Codable {
     var description: String {
         """
         \(statusAndSpeciesText)
+        name: \(name)
         gender: \(gender)
         created: \(created)
         origin: \(origin?.name ?? "Undefinied")

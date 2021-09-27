@@ -7,66 +7,65 @@
 
 import UIKit
 
-class FavoriteCharactersViewController: UIViewController {
+class FavoriteCharactersViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     //MARK: - Private properties
-    private let favoriteCharacters: [FavoriteCharacters] = StorageManager.shared.fetchFavotiteCharacters()
+    private var favoriteCharacters: [FavoriteCharacters] = StorageManager.shared.fetchFavotiteCharacters()
+    private var displayedCharacter: Character? {
+        willSet {
+            characterDescription.text = newValue?.description
+            NetworkManager.shared.loadData(from: newValue!.image, completion: { data in
+                self.characterImage.image = UIImage(data: data)
+            })
+        }
+    }
     
     //MARK: - IB Outlets
-    @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var characterImage: CharacterImageView!
     @IBOutlet weak var characterDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSwipeActions()
         if !favoriteCharacters.isEmpty {
-            fetchCharacterData(from: favoriteCharacters.first!)
+            setDisplayedCharacter(from: favoriteCharacters.first!)
         } else {
             characterDescription.text = "No favorite characters"
         }
     }
     
     //MARK: - Private functions
-    private func fetchCharacterData(from character: FavoriteCharacters) {
+    private func setDisplayedCharacter(from character: FavoriteCharacters) {
         guard let url = character.url else { return }
         NetworkManager.shared.loadModel(from: url, decodeTo: Character.self) { result in
             switch result {
             case .success(let response):
-                self.fillCharacterInfo(from: response)
+                self.displayedCharacter = response
             case .fail(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
     
-    private func fillCharacterInfo(from character: Character) {
-        characterDescription.text = character.description
-        NetworkManager.shared.loadData(from: character.image, completion: { result in
-            self.characterImage.image = UIImage(data: result)
-        })
-    }
-    
-    @objc private func swipeHandler(_ sender: UISwipeGestureRecognizer) {
-        print("Start")
-        switch sender.direction {
+    @objc private func swipeHandler(gesture: UISwipeGestureRecognizer) {
+        switch gesture.direction {
         case .right:
-            print("right")
+            setDisplayedCharacter(from: favoriteCharacters[1])
         case .left:
-            print("left")
+            setDisplayedCharacter(from: favoriteCharacters[0])
         default:
-            print("nothing")
+            break
         }
     }
     
     private func configureSwipeActions() {
-        let rightSwipeActionRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
+        let rightSwipeActionRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        let leftSwipeActionRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
         rightSwipeActionRecognizer.direction = .right
-        let leftSwipeActionsRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
-        leftSwipeActionsRecognizer.direction = .left
+        leftSwipeActionRecognizer.direction = .left
         view.addGestureRecognizer(rightSwipeActionRecognizer)
-        view.addGestureRecognizer(leftSwipeActionsRecognizer)
+        view.addGestureRecognizer(leftSwipeActionRecognizer)
     }
     
-
 }
