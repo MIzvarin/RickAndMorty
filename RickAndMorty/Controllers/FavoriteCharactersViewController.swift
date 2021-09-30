@@ -20,6 +20,7 @@ class FavoriteCharactersViewController: UIViewController, UIGestureRecognizerDel
             })
         }
     }
+    private var currentIndex: Int = 0
     
     //MARK: - IB Outlets
     @IBOutlet weak var characterImage: CharacterImageView!
@@ -38,10 +39,12 @@ class FavoriteCharactersViewController: UIViewController, UIGestureRecognizerDel
     //MARK: - Private functions
     private func setDisplayedCharacter(from character: FavoriteCharacters) {
         guard let url = character.url else { return }
+        let index = favoriteCharacters.firstIndex(of: character)!
         NetworkManager.shared.loadModel(from: url, decodeTo: Character.self) { result in
             switch result {
             case .success(let response):
                 self.displayedCharacter = response
+                self.currentIndex = index
             case .fail(let error):
                 print(error.localizedDescription)
             }
@@ -51,13 +54,16 @@ class FavoriteCharactersViewController: UIViewController, UIGestureRecognizerDel
     @objc private func swipeHandler(gesture: UISwipeGestureRecognizer) {
         switch gesture.direction {
         case .right:
-            setDisplayedCharacter(from: favoriteCharacters[1])
+            let index = currentIndex == 0 ? favoriteCharacters.count - 1 : currentIndex - 1
+            setDisplayedCharacter(from: favoriteCharacters[index])
         case .left:
-            setDisplayedCharacter(from: favoriteCharacters[0])
+            let index = currentIndex == favoriteCharacters.count - 1 ? 0 : currentIndex + 1
+            setDisplayedCharacter(from: favoriteCharacters[index])
         default:
             break
         }
     }
+    
     
     private func configureSwipeActions() {
         let rightSwipeActionRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
@@ -67,5 +73,4 @@ class FavoriteCharactersViewController: UIViewController, UIGestureRecognizerDel
         view.addGestureRecognizer(rightSwipeActionRecognizer)
         view.addGestureRecognizer(leftSwipeActionRecognizer)
     }
-    
 }
